@@ -1,0 +1,39 @@
+<div>
+    <div class="navbar">
+      <div>
+        <img src="assets/images/logo.png" class="logo" alt="Logo" routerLink="/" />
+      </div>
+  
+      <div class="navbar-contents">
+        <ul>
+          <li
+            *ngFor="let item of navItems"
+            [routerLink]="item.path"
+            routerLinkActive="active"
+          >
+            {{ item.label }}
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Search Bar -->
+      <div class="search-bar-container">
+        <input
+          class="search-bar"
+          type="text"
+          placeholder="Search..."
+          [(ngModel)]="searchQuery"
+          (input)="onSearch()"
+        />
+      </div>
+    </div>
+  
+    <!-- Display Search Results -->
+    <div *ngIf="searchResults.length > 0" class="search-results">
+      <ul>
+        <li *ngFor="let book of searchResults">
+          {{ book.title }} by {{ book.author }}
+        </li>
+      </ul>
+    </div>
+  </div>

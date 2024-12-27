@@ -1,0 +1,21 @@
+<p>Create Book</p>
+<button (click)="showModal = true">Add Book</button>
+
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="showModal = false">&times;</span>
+    <h2>Create Book</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <label for="title">Title:</label>
+        <input id="title" formControlName="title" required />
+        
+        <label for="author">Author:</label>
+        <input id="author" formControlName="author" required />
+        
+        <label for="year">Year:</label>
+        <input id="year" type="number" formControlName="year" required />
+        
+        <button type="submit" [disabled]="bookForm.invalid">Submit</button>
+      </form>
+  </div>
+</div>

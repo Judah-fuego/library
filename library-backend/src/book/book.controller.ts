@@ -7,6 +7,7 @@ import {
   Put,
   Delete,
   ParseIntPipe,
+  Query,
 } from '@nestjs/common';
 import { BookService } from './book.service';
 import { CreateBookDto } from './dto/create-book.dto';
@@ -24,6 +25,11 @@ export class BookController {
   @Get()
   findAll() {
     return this.bookService.findAll();
+  }
+
+  @Get('search')
+  async search(@Query('title') title: string) {
+    return this.bookService.findBooksByTitleFuzzy(title);
   }
 
   @Get(':id')

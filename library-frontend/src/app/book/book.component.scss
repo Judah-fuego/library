@@ -1,42 +1,70 @@
-$primary-color: blue;
-
-.results {
+// library-frontend/src/app/book/book.component.scss
+.books-container {
     display: grid;
-    column-gap: 14px;
-    row-gap: 14px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
-    margin-top: 50px;
-    justify-content: space-around;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
   }
-  input[type="text"] {
-    border: solid 1px $primary-color;
-    padding: 10px;
+  
+  .book-item {
+    padding: 15px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    margin-right: 4px;
-    display: inline-block;
-    width: 30%;
-  }
-  button {
-    padding: 10px;
-    border: solid 1px $primary-color;
-    background: $primary-color;
-    color: white;
-    border-radius: 8px;
-  }
-  button:hover{
     background-color: white;
-    color: $primary-color;
-  }
-  @media (min-width: 500px) and (max-width: 768px) {
-    .results {
-        grid-template-columns: repeat(2, 1fr);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+    h3 {
+      margin: 0 0 10px 0;
+      color: #333;
     }
-    input[type="text"] {
-        width: 70%;
-    }   
+  
+    p {
+      margin: 5px 0;
+      color: #666;
+    }
+  
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #cc0000;
+      }
+  
+      &:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+    }
   }
-  @media (max-width: 499px) {
-    .results {
-        grid-template-columns: 1fr;
-    }    
+  
+  .loading {
+    text-align: center;
+    padding: 20px;
+    grid-column: 1 / -1;
+    color: #666;
   }
+
+.add-book-button{
+  padding: 1vh;
+  margin-bottom: 1vh;
+  position: absolute;
+  right: 2vh;
+  border: solid 1px rgb(175, 175, 255);
+  font-size: 15px;
+  border-radius: 10px;
+  background-color: rgb(102, 135, 255);
+  color: white;
+  display: inline-block;
+  
+  &:hover{
+    background-color: rgb(56, 95, 236);
+  }
+  
+}

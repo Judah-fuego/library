@@ -1,0 +1,134 @@
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 80%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    border-radius: 15px;
+    padding: 0 25px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  
+    &:hover {
+      box-shadow: 0 6px 35px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  .search-bar-container {
+    position: relative;
+  }
+  
+  .search-bar {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    width: 200px;
+    transition: all 0.3s ease;
+  
+    &:focus {
+      border-color: #ff6600;
+      box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.1);
+    }
+  }
+  
+  .search-results {
+    position: absolute; /* Changed from fixed to absolute */
+    top: calc(100% + 8px); /* Positioned directly below the search bar */
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 102, 0, 0.3);
+    width: 50vh; /* Matches the width of the search bar */
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+  
+      li {
+        padding: 10px;
+        cursor: pointer;
+        font-weight: 500;
+        color: #333;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(255, 102, 0, 0.1);
+  
+        &:hover {
+          background-color: rgba(255, 102, 0, 0.1);
+          color: #ff6600;
+        }
+  
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  
+  .logo {
+    width: auto;
+    height: 50px;
+    margin: 0;
+    border-radius: 100%;
+    transition: transform 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  .navbar-contents {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+    }
+  
+    li {
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      position: relative;
+  
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #ff6600;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+  
+      &:hover {
+        color: #ff6600;
+        background-color: rgba(255, 102, 0, 0.1);
+  
+        &::after {
+          width: 80%;
+        }
+      }
+    }
+  }

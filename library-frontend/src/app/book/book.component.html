@@ -1,0 +1,19 @@
+<!-- library-frontend/src/app/book/book.component.html -->
+
+ <app-createbook></app-createbook>
+
+
+<div class="books-container">
+  <div *ngIf="isLoading()" class="loading">
+    Loading...
+  </div>
+  
+  <div *ngFor="let book of books" class="book-item">
+    <h3>{{ book.title }}</h3>
+    <p>Author: {{ book.author }}</p>
+    <p>Year: {{ book.year }}</p>
+    <button (click)="deleteBook(book.id)" [disabled]="isLoading()">
+      {{ isLoading() ? 'Deleting...' : 'Delete' }}
+    </button>
+  </div>
+</div>

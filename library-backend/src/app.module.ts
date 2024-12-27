@@ -15,6 +15,7 @@ import { BookModule } from './book/book.module';
       database: 'library',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
+      autoLoadEntities: true,
     }),
     BookModule,
   ],
